@@ -27,6 +27,14 @@ Add to `.pre-commit-config.yaml`:
 
 Install: `pre-commit install`
 
+## Upgrading
+
+Update to the latest version:
+
+```bash
+pre-commit autoupdate
+```
+
 ## Configuration
 
 Both removal rules are enabled by default. Keep specific elements using args:
