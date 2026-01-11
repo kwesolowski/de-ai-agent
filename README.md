@@ -16,8 +16,6 @@ Analysis of 40 million pull requests shows 1-in-7 contain AI artifacts. Forced a
 
 ## Installation
 
-### Via pre-commit Framework (Recommended)
-
 Add to `.pre-commit-config.yaml`:
 
 ```yaml
@@ -27,32 +25,7 @@ Add to `.pre-commit-config.yaml`:
     - id: de-ai-agent
 ```
 
-Then install the hook:
-
-```bash
-pre-commit install --hook-type commit-msg
-```
-
-### Standalone
-
-Install the package:
-
-```bash
-pip install git+https://github.com/kwesolowski/de-ai-agent.git
-```
-
-Create `.git/hooks/commit-msg`:
-
-```bash
-#!/bin/sh
-de-ai-agent "$1"
-```
-
-Make it executable:
-
-```bash
-chmod +x .git/hooks/commit-msg
-```
+Install: `pre-commit install`
 
 ## Configuration
 
@@ -65,6 +38,32 @@ Both removal rules are enabled by default. Keep specific elements using args:
     - id: de-ai-agent
       args: ['--keep-coauthor']  # Keep co-author lines, remove branding
 ```
+
+### Verbose Output
+
+See what the hook removes:
+
+```yaml
+- repo: https://github.com/kwesolowski/de-ai-agent
+  rev: v0.1.0
+  hooks:
+    - id: de-ai-agent
+      verbose: true  # Shows detailed list of removed content
+```
+
+By default, the hook outputs a one-line summary when it modifies your commit message:
+```
+de-ai-agent: Removed AI co-author, branding
+```
+
+With `verbose: true`, you get details:
+```
+de-ai-agent: Removed:
+  - Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+  - 🤖 Generated with [Claude Code](https://claude.com/claude-code)
+```
+
+The hook is silent when no changes are made.
 
 ## Examples
 
