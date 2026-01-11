@@ -69,7 +69,10 @@ def remove_branding(text: str) -> str:
 
 
 def sanitize_commit_message(
-    text: str, *, keep_coauthor: bool = False, keep_branding: bool = False
+    text: str,
+    *,
+    keep_coauthor: bool = False,
+    keep_branding: bool = False,
 ) -> str:
     """Sanitize commit message by removing AI pollution.
 
@@ -99,7 +102,7 @@ def main() -> int:
         Exit code (0 for success)
     """
     parser = argparse.ArgumentParser(
-        description="Remove AI pollution from commit messages"
+        description="Remove AI pollution from commit messages",
     )
     parser.add_argument(
         "--keep-coauthor",
