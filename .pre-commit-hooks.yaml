@@ -1,0 +1,7 @@
+- id: de-ai-agent
+  name: Remove AI pollution from commit messages
+  description: Removes Co-Authored-By AI attribution and branding footers from commit messages
+  entry: de-ai-agent
+  language: python
+  stages: [commit-msg]
+  pass_filenames: false
