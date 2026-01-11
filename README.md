@@ -20,7 +20,7 @@ Add to `.pre-commit-config.yaml`:
 
 ```yaml
 - repo: https://github.com/kwesolowski/de-ai-agent
-  rev: v0.1.0
+  rev: v0.2.0
   hooks:
     - id: de-ai-agent
 ```
@@ -33,7 +33,7 @@ Both removal rules are enabled by default. Keep specific elements using args:
 
 ```yaml
 - repo: https://github.com/kwesolowski/de-ai-agent
-  rev: v0.1.0
+  rev: v0.2.0
   hooks:
     - id: de-ai-agent
       args: ['--keep-coauthor']  # Keep co-author lines, remove branding
@@ -45,7 +45,7 @@ See what the hook removes:
 
 ```yaml
 - repo: https://github.com/kwesolowski/de-ai-agent
-  rev: v0.1.0
+  rev: v0.2.0
   hooks:
     - id: de-ai-agent
       verbose: true  # Shows detailed list of removed content
