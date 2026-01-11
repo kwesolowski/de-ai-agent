@@ -1,5 +1,7 @@
 # de-ai-agent
 
+[![CI](https://github.com/kwesolowski/de-ai-agent/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/kwesolowski/de-ai-agent/actions/workflows/ci.yml)
+
 Pre-commit hook that removes AI pollution from commit messages.
 
 ## Problem
