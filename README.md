@@ -16,22 +16,41 @@ Analysis of 40 million pull requests shows 1-in-7 contain AI artifacts. Forced a
 
 ## Installation
 
-### Via pre-commit Framework
+### Via pre-commit Framework (Recommended)
 
 Add to `.pre-commit-config.yaml`:
 
 ```yaml
-- repo: https://github.com/user/de-ai-agent
-  rev: v1.0.0
+- repo: https://github.com/kwesolowski/de-ai-agent
+  rev: master  # Use specific commit SHA in production
   hooks:
     - id: de-ai-agent
 ```
 
-### Standalone
+Then install the hook:
 
 ```bash
-# Copy hook script to your repo
-curl -o .git/hooks/commit-msg https://raw.githubusercontent.com/user/de-ai-agent/main/de_ai_agent.py
+pre-commit install --hook-type commit-msg
+```
+
+### Standalone
+
+Install the package:
+
+```bash
+pip install git+https://github.com/kwesolowski/de-ai-agent.git
+```
+
+Create `.git/hooks/commit-msg`:
+
+```bash
+#!/bin/sh
+de-ai-agent "$1"
+```
+
+Make it executable:
+
+```bash
 chmod +x .git/hooks/commit-msg
 ```
 
@@ -40,8 +59,8 @@ chmod +x .git/hooks/commit-msg
 Both removal rules are enabled by default. Keep specific elements using args:
 
 ```yaml
-- repo: https://github.com/user/de-ai-agent
-  rev: v1.0.0
+- repo: https://github.com/kwesolowski/de-ai-agent
+  rev: master
   hooks:
     - id: de-ai-agent
       args: ['--keep-coauthor']  # Keep co-author lines, remove branding
