@@ -22,7 +22,7 @@ Add to `.pre-commit-config.yaml`:
 
 ```yaml
 - repo: https://github.com/kwesolowski/de-ai-agent
-  rev: master  # Use specific commit SHA in production
+  rev: v0.1.0
   hooks:
     - id: de-ai-agent
 ```
@@ -60,7 +60,7 @@ Both removal rules are enabled by default. Keep specific elements using args:
 
 ```yaml
 - repo: https://github.com/kwesolowski/de-ai-agent
-  rev: master
+  rev: v0.1.0
   hooks:
     - id: de-ai-agent
       args: ['--keep-coauthor']  # Keep co-author lines, remove branding
