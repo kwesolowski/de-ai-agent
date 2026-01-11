@@ -4,5 +4,4 @@
   entry: de-ai-agent
   language: python
   stages: [commit-msg]
-  default_install_hook_types: [commit-msg]
   pass_filenames: false
